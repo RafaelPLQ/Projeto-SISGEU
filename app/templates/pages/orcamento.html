@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Orçamento{% endblock %}
+
+{% block content %}
+
+<div class="page active" id="pg-orcamento">
+
+      <div class="page-header">
+        <div>
+          <div class="page-title">Orçamento Mensal</div>
+          <div class="page-sub">Gerencie seus limites de gastos por categoria</div>
+        </div>
+        <button class="btn btn-primary" onclick="showToast('💾 Orçamento salvo com sucesso!')">Salvar Alterações</button>
+      </div>
+
+      <!-- Cards de resumo -->
+      <div class="cards-row">
+        <div class="stat-card green">
+          <div class="stat-label">Orçamento Total</div>
+          <div class="stat-value green mono">R$ 1.500</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-label">Gasto Até Agora</div>
+          <div class="stat-value red mono">R$ 814</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-label">Disponível</div>
+          <div class="stat-value blue mono">R$ 686</div>
+        </div>
+        <div class="stat-card yellow">
+          <div class="stat-label">% Utilizado</div>
+          <div class="stat-value yellow mono">54,3%</div>
+        </div>
+      </div>
+
+      <!-- Limites por categoria + Gráfico de distribuição -->
+      <div class="grid2">
+
+        <!-- Itens de orçamento editáveis -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="widget-title">Limites por Categoria</span>
+          </div>
+          <div class="widget-body">
+            <div id="budget-items">
+
+              <div class="progress-item" style="border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px">
+                <div class="progress-top">
+                  <span class="progress-name">🍔 Alimentação</span>
+                  <input class="form-input mono" style="width:110px;text-align:right;padding:4px 8px;font-size:13px" value="R$ 350,00" />
+                </div>
+                <div style="margin:8px 0 4px">
+                  <div class="progress-bar" style="height:8px"><div class="progress-fill yellow" style="width:80%"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3)">
+                  <span>Gasto: R$ 280,00</span>
+                  <span class="mono" style="color:var(--yellow)">80% usado ⚠️</span>
+                </div>
+              </div>
+
+              <div class="progress-item" style="border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px">
+                <div class="progress-top">
+                  <span class="progress-name">🚌 Transporte</span>
+                  <input class="form-input mono" style="width:110px;text-align:right;padding:4px 8px;font-size:13px" value="R$ 150,00" />
+                </div>
+                <div style="margin:8px 0 4px">
+                  <div class="progress-bar" style="height:8px"><div class="progress-fill green" style="width:50%"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3)">
+                  <span>Gasto: R$ 75,00</span>
+                  <span class="mono" style="color:var(--green)">50% usado ✓</span>
+                </div>
+              </div>
+
+              <div class="progress-item" style="border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px">
+                <div class="progress-top">
+                  <span class="progress-name">📚 Educação</span>
+                  <input class="form-input mono" style="width:110px;text-align:right;padding:4px 8px;font-size:13px" value="R$ 200,00" />
+                </div>
+                <div style="margin:8px 0 4px">
+                  <div class="progress-bar" style="height:8px"><div class="progress-fill blue" style="width:44.5%"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3)">
+                  <span>Gasto: R$ 89,00</span>
+                  <span class="mono" style="color:var(--blue)">44% usado ✓</span>
+                </div>
+              </div>
+
+              <div class="progress-item" style="border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px">
+                <div class="progress-top">
+                  <span class="progress-name">🎮 Lazer</span>
+                  <input class="form-input mono" style="width:110px;text-align:right;padding:4px 8px;font-size:13px" value="R$ 200,00" />
+                </div>
+                <div style="margin:8px 0 4px">
+                  <div class="progress-bar" style="height:8px"><div class="progress-fill red" style="width:95%"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3)">
+                  <span>Gasto: R$ 190,00</span>
+                  <span class="mono" style="color:var(--red)">95% usado 🚨</span>
+                </div>
+              </div>
+
+              <div class="progress-item" style="border:1px solid var(--border);border-radius:8px;padding:12px">
+                <div class="progress-top">
+                  <span class="progress-name">🏠 Moradia</span>
+                  <input class="form-input mono" style="width:110px;text-align:right;padding:4px 8px;font-size:13px" value="R$ 600,00" />
+                </div>
+                <div style="margin:8px 0 4px">
+                  <div class="progress-bar" style="height:8px"><div class="progress-fill green" style="width:50%"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3)">
+                  <span>Gasto: R$ 300,00</span>
+                  <span class="mono" style="color:var(--green)">50% usado ✓</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfico de distribuição do orçamento -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="widget-title">Distribuição do Orçamento</span>
+          </div>
+          <div class="widget-body">
+            <div class="chart-wrap" style="height:260px">
+              <canvas id="chartOrcamento"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /pg-orcamento -->
+
+{% endblock %}
