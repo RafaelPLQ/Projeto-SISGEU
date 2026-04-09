@@ -1,8 +1,30 @@
 from django.db import models
+<<<<<<< HEAD
 from django.conf import settings
 import uuid
 
 
+=======
+import uuid
+
+
+class Usuario(models.Model):
+    id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+    nome = models.CharField(max_length=150)
+    email = models.EmailField(max_length=255, unique=True)
+    senha = models.CharField(max_length=255)
+    curso = models.CharField(max_length=150, blank=True, null=True)
+    instituicao = models.CharField(max_length=200, blank=True, null=True)
+    data_nascimento = models.DateField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'usuarios'
+
+    def __str__(self):
+        return self.nome
+
+
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
 class Categoria(models.Model):
     TIPO_CHOICES = [
         ('despesa', 'Despesa'),
@@ -11,7 +33,11 @@ class Categoria(models.Model):
     ]
 
     id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+<<<<<<< HEAD
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, db_column='idusuario')
+=======
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True, db_column='idusuario')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     nome = models.CharField(max_length=100)
     tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
     cor = models.CharField(max_length=7, default='#6366F1')
@@ -30,7 +56,11 @@ class Categoria(models.Model):
 
 class Orcamento(models.Model):
     id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+<<<<<<< HEAD
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column='idusuario')
+=======
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idusuario')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, db_column='idcategoria')
     mes = models.IntegerField()
     ano = models.IntegerField()
@@ -64,7 +94,11 @@ class Despesa(models.Model):
     ]
 
     id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+<<<<<<< HEAD
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column='idusuario')
+=======
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idusuario')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True, db_column='idcategoria')
     valor = models.DecimalField(max_digits=12, decimal_places=2)
     data = models.DateField()
@@ -95,7 +129,11 @@ class Receita(models.Model):
     ]
 
     id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+<<<<<<< HEAD
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column='idusuario')
+=======
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idusuario')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True, db_column='idcategoria')
     valor = models.DecimalField(max_digits=12, decimal_places=2)
     data = models.DateField()
@@ -117,7 +155,11 @@ class Receita(models.Model):
 
 class Meta(models.Model):
     id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+<<<<<<< HEAD
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column='idusuario')
+=======
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idusuario')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     nome = models.CharField(max_length=150)
     descricao = models.TextField(null=True, blank=True)
     valor_alvo = models.DecimalField(max_digits=12, decimal_places=2)
@@ -144,7 +186,11 @@ class Alerta(models.Model):
     ]
 
     id = models.CharField(max_length=36, primary_key=True, default=uuid.uuid4, editable=False)
+<<<<<<< HEAD
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column='idusuario')
+=======
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='idusuario')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     orcamento = models.ForeignKey(Orcamento, on_delete=models.SET_NULL, null=True, blank=True, db_column='idorcamento')
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
     mensagem = models.TextField()
@@ -160,4 +206,8 @@ class Alerta(models.Model):
     def __str__(self):
         return f"Alerta: {self.tipo} - {self.usuario}"
 
+<<<<<<< HEAD
         
+=======
+        
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995

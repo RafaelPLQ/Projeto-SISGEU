@@ -21,7 +21,11 @@ def cadastro_view(request):
 
 def login_view(request):
     if request.user.is_authenticated:
+<<<<<<< HEAD
         return redirect('app:dashboard')
+=======
+        return redirect('dashboard')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
         if form.is_valid():
@@ -30,9 +34,17 @@ def login_view(request):
             user = authenticate(request, username=email, password=senha)
             if user is not None:
                 login(request, user)
+<<<<<<< HEAD
                 return redirect('app:dashboard')
+=======
+                return redirect('dashboard')
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
             else:
                 form.add_error(None, 'E-mail ou senha inválidos.')
     else:
         form = LoginForm()
+<<<<<<< HEAD
+=======
+    # ← CORRIGIDO: template correto (registration/login.html, dentro de accounts/templates/)
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
     return render(request, 'registration/login.html', {'form': form})

@@ -22,7 +22,11 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'accounts.Usuario'
 LOGIN_URL = '/accounts/login/'
+<<<<<<< HEAD
 LOGIN_REDIRECT_URL = '/dashboard/'
+=======
+LOGIN_REDIRECT_URL = '/dashboard/'  # ← ADICIONADO: redireciona após login
+>>>>>>> 481d0b09a52df8e1a6c8079820240659d7f02995
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
