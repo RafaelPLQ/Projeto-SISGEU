@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Lançamentos{% endblock %}
+
+{% block content %}
+
+<div class="page active" id="pg-lancamentos">
+
+      <div class="page-header">
+        <div>
+          <div class="page-title">Lançamentos</div>
+          <div class="page-sub">Histórico de receitas e despesas</div>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('modal-add')">+ Novo Lançamento</button>
+      </div>
+
+      <!-- Filtro por mês -->
+      <div class="month-pills">
+        <div class="month-pill active">Mar/25</div>
+        <div class="month-pill" onclick="selectPill(this)">Fev/25</div>
+        <div class="month-pill" onclick="selectPill(this)">Jan/25</div>
+        <div class="month-pill" onclick="selectPill(this)">Dez/24</div>
+        <div class="month-pill" onclick="selectPill(this)">Nov/24</div>
+        <div class="month-pill" onclick="selectPill(this)">Out/24</div>
+      </div>
+
+      <!-- Tabela de lançamentos -->
+      <div class="widget">
+        <div class="widget-body" style="padding:0">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th style="text-align:right">Valor</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>iFood – Almoço</strong></td>
+                <td><span class="tag yellow">🍔 Alimentação</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">09/03/25</td>
+                <td><span class="tag red">Despesa</span></td>
+                <td class="mono" style="text-align:right;color:var(--red);font-weight:700">– R$ 32,90</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Bolsa PIBIC</strong></td>
+                <td><span class="tag green">💰 Bolsa</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">05/03/25</td>
+                <td><span class="tag green">Receita</span></td>
+                <td class="mono" style="text-align:right;color:var(--green);font-weight:700">+ R$ 400,00</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Livros – Livraria UCB</strong></td>
+                <td><span class="tag blue">📚 Educação</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">04/03/25</td>
+                <td><span class="tag red">Despesa</span></td>
+                <td class="mono" style="text-align:right;color:var(--red);font-weight:700">– R$ 89,00</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Estágio – TechCorp</strong></td>
+                <td><span class="tag green">💳 Estágio</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">01/03/25</td>
+                <td><span class="tag green">Receita</span></td>
+                <td class="mono" style="text-align:right;color:var(--green);font-weight:700">+ R$ 850,00</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Recarga BilheteÚnico</strong></td>
+                <td><span class="tag yellow">🚌 Transporte</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">01/03/25</td>
+                <td><span class="tag red">Despesa</span></td>
+                <td class="mono" style="text-align:right;color:var(--red);font-weight:700">– R$ 75,00</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Netflix</strong></td>
+                <td><span class="tag purple">🎮 Lazer</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">01/03/25</td>
+                <td><span class="tag red">Despesa</span></td>
+                <td class="mono" style="text-align:right;color:var(--red);font-weight:700">– R$ 29,90</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Aluguel – Quarto compartilhado</strong></td>
+                <td><span class="tag blue">🏠 Moradia</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">01/03/25</td>
+                <td><span class="tag red">Despesa</span></td>
+                <td class="mono" style="text-align:right;color:var(--red);font-weight:700">– R$ 300,00</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+              <tr>
+                <td><strong>Mesada</strong></td>
+                <td><span class="tag green">👨‍👩‍👧 Família</span></td>
+                <td class="mono" style="font-size:12px;color:var(--text3)">01/03/25</td>
+                <td><span class="tag green">Receita</span></td>
+                <td class="mono" style="text-align:right;color:var(--green);font-weight:700">+ R$ 600,00</td>
+                <td><button class="btn btn-danger" style="padding:4px 10px;font-size:11px" onclick="showToast('🗑️ Lançamento removido')">✕</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div><!-- /pg-lancamentos -->
+
+{% endblock %}

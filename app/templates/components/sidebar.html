@@ -1,0 +1,57 @@
+{% load static %}
+<aside class="sidebar">
+<!-- Logo -->
+    <div class="sidebar-logo">
+      <div class="logo-badge">
+        <div class="logo-icon">📊</div>
+        <div>
+          <div class="logo-text">SISGEU</div>
+          <div class="logo-sub">v1.0 · Protótipo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grupo: Principal -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Principal</div>
+
+      <a href="{% url 'dashboard' %}" class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+        <span class="icon">⬡</span> Dashboard
+      </a>
+
+      <a href="{% url 'lancamentos' %}" class="nav-item {% if request.resolver_match.url_name == 'lancamentos' %}active{% endif %}">
+        <span class="icon">↕</span> Lançamentos
+      </a>
+
+      <a href="{% url 'orcamento' %}" class="nav-item {% if request.resolver_match.url_name == 'orcamento' %}active{% endif %}">
+        <span class="icon">◈</span> Orçamento
+      </a>
+
+      <a href="{% url 'relatorios' %}" class="nav-item {% if request.resolver_match.url_name == 'relatorios' %}active{% endif %}">
+        <span class="icon">≡</span> Relatórios
+      </a>
+    </div>
+
+    <!-- Grupo: Planejamento -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Planejamento</div>
+
+      <a href="{% url 'metas' %}" class="nav-item {% if request.resolver_match.url_name == 'metas' %}active{% endif %}">
+        <span class="icon">◎</span> Metas Financeiras
+      </a>
+
+      <a href="{% url 'alertas' %}" class="nav-item {% if request.resolver_match.url_name == 'alertas' %}active{% endif %}">
+        <span class="icon">▲</span> Alertas
+      </a>
+    </div>
+
+
+    <!-- Perfil do usuário -->
+    <div class="sidebar-user">
+      <div class="avatar">AS</div>
+      <div class="user-info">
+        <div class="user-name">Ana Silva</div>
+        <div class="user-course">Engenharia · 3º período</div>
+      </div>
+    </div>
+</aside>

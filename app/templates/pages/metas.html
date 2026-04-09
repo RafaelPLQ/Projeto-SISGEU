@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}Metas{% endblock %}
+
+{% block content %}
+
+<div class="page active" id="pg-metas">
+
+      <div class="page-header">
+        <div>
+          <div class="page-title">Metas Financeiras</div>
+          <div class="page-sub">Acompanhe seus objetivos de poupança</div>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('modal-meta')">+ Nova Meta</button>
+      </div>
+
+      <!-- Cards de resumo -->
+      <div class="cards-row">
+        <div class="stat-card blue">
+          <div class="stat-label">Metas Ativas</div>
+          <div class="stat-value blue mono">3</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Total Poupado</div>
+          <div class="stat-value green mono">R$ 1.730</div>
+        </div>
+        <div class="stat-card yellow">
+          <div class="stat-label">Total Almejado</div>
+          <div class="stat-value yellow mono">R$ 5.200</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Meta Concluída</div>
+          <div class="stat-value green mono">1 ✓</div>
+        </div>
+      </div>
+
+      <!-- Lista de metas -->
+      <div id="metas-list">
+
+        <div class="meta-card">
+          <div class="meta-top">
+            <div>
+              <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">🏖️ Viagem</div>
+              <div class="meta-name">Viagem de Intercâmbio</div>
+            </div>
+            <div class="meta-pct">43%</div>
+          </div>
+          <div class="progress-bar" style="height:10px"><div class="progress-fill blue" style="width:43%"></div></div>
+          <div class="meta-vals">
+            <span>Poupado: R$ 860,00</span>
+            <span>Meta: R$ 2.000,00</span>
+            <span>Prazo: Dez/25</span>
+          </div>
+        </div>
+
+        <div class="meta-card">
+          <div class="meta-top">
+            <div>
+              <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">🖥️ Equipamento</div>
+              <div class="meta-name">Notebook para o TCC</div>
+            </div>
+            <div class="meta-pct">62%</div>
+          </div>
+          <div class="progress-bar" style="height:10px"><div class="progress-fill green" style="width:62%"></div></div>
+          <div class="meta-vals">
+            <span>Poupado: R$ 620,00</span>
+            <span>Meta: R$ 1.000,00</span>
+            <span>Prazo: Jun/25</span>
+          </div>
+        </div>
+
+        <div class="meta-card">
+          <div class="meta-top">
+            <div>
+              <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">🛡️ Reserva</div>
+              <div class="meta-name">Reserva de Emergência</div>
+            </div>
+            <div class="meta-pct">11%</div>
+          </div>
+          <div class="progress-bar" style="height:10px"><div class="progress-fill yellow" style="width:11%"></div></div>
+          <div class="meta-vals">
+            <span>Poupado: R$ 250,00</span>
+            <span>Meta: R$ 2.200,00</span>
+            <span>Prazo: Dez/25</span>
+          </div>
+        </div>
+
+        <!-- Meta concluída -->
+        <div class="meta-card" style="border-color:var(--green);background:rgba(63,185,80,0.05)">
+          <div class="meta-top">
+            <div>
+              <div style="font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">✅ Concluída</div>
+              <div class="meta-name">Cursos online – Udemy</div>
+            </div>
+            <div class="meta-pct" style="color:var(--green)">100%</div>
+          </div>
+          <div class="progress-bar" style="height:10px"><div class="progress-fill green" style="width:100%"></div></div>
+          <div class="meta-vals">
+            <span>Poupado: R$ 200,00</span>
+            <span>Meta: R$ 200,00</span>
+            <span style="color:var(--green)">🎉 Concluída!</span>
+          </div>
+        </div>
+      </div>
+    </div><!-- /pg-metas -->
+
+{% endblock %}

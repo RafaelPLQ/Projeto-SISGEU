@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Alertas{% endblock %}
+
+{% block content %}
+
+<div class="page active" id="pg-alertas">
+
+      <div class="page-header">
+        <div>
+          <div class="page-title">Alertas</div>
+          <div class="page-sub">Notificações e avisos do sistema</div>
+        </div>
+        <button class="btn btn-secondary" onclick="showToast('✓ Todos os alertas foram lidos!')">Marcar todos como lidos</button>
+      </div>
+
+      <!-- Alertas não lidos -->
+      <div style="margin-bottom:8px;font-size:12px;color:var(--text3)">🔴 Não lidos (2)</div>
+
+      <div class="alert-item danger">
+        <div class="alert-icon">🚨</div>
+        <div>
+          <div class="alert-title">Limite de Lazer quase esgotado!</div>
+          <div class="alert-text">Você utilizou 95% (R$ 190 de R$ 200) do orçamento de Lazer. Apenas R$ 10 restantes para este mês.</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;font-family:'Space Mono',monospace">Hoje, 14:32</div>
+        </div>
+      </div>
+
+      <div class="alert-item warn">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title">Alimentação atingiu 80% do orçamento</div>
+          <div class="alert-text">Você já gastou R$ 280 de R$ 350 em Alimentação este mês. Fique atento para não ultrapassar o limite.</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;font-family:'Space Mono',monospace">Hoje, 09:15</div>
+        </div>
+      </div>
+
+      <!-- Alertas lidos -->
+      <div style="margin:20px 0 8px;font-size:12px;color:var(--text3)">✅ Lidos recentemente</div>
+
+      <div class="alert-item info" style="opacity:0.6">
+        <div class="alert-icon">ℹ️</div>
+        <div>
+          <div class="alert-title">Meta "Notebook para o TCC" passou de 60%!</div>
+          <div class="alert-text">Parabéns! Sua meta de poupança para o notebook atingiu 62%. Continue assim!</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;font-family:'Space Mono',monospace">Ontem, 16:00</div>
+        </div>
+      </div>
+
+      <div class="alert-item info" style="opacity:0.6">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-title">Dica do mês: Regra 50/30/20</div>
+          <div class="alert-text">Que tal aplicar a regra 50/30/20 ao seu orçamento? Destine 50% para necessidades, 30% para desejos e 20% para poupança.</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:6px;font-family:'Space Mono',monospace">05/03, 08:00</div>
+        </div>
+      </div>
+    </div><!-- /pg-alertas -->
+
+{% endblock %}

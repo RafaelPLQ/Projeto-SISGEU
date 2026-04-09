@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}Relatórios{% endblock %}
+
+{% block content %}
+
+<div class="page active" id="pg-relatorios">
+
+      <div class="page-header">
+        <div>
+          <div class="page-title">Relatórios Financeiros</div>
+          <div class="page-sub">Análise e histórico dos seus gastos</div>
+        </div>
+        <button class="btn btn-secondary" onclick="showToast('📥 Relatório exportado em PDF!')">↓ Exportar PDF</button>
+      </div>
+
+      <!-- Gráfico de linha – evolução semestral -->
+      <div class="widget section-gap">
+        <div class="widget-header">
+          <span class="widget-title">Evolução Mensal – Últimos 6 Meses</span>
+        </div>
+        <div class="widget-body">
+          <div class="chart-wrap" style="height:240px">
+            <canvas id="chartLine"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabelas analíticas -->
+      <div class="grid2">
+
+        <!-- Gastos por categoria -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="widget-title">Gastos por Categoria – Mar/25</span>
+          </div>
+          <div class="widget-body" style="padding:0">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Categoria</th>
+                  <th style="text-align:right">Gasto</th>
+                  <th style="text-align:right">% Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>🏠 Moradia</td>
+                  <td class="mono" style="text-align:right">R$ 300,00</td>
+                  <td style="text-align:right"><span class="tag blue">29,9%</span></td>
+                </tr>
+                <tr>
+                  <td>🍔 Alimentação</td>
+                  <td class="mono" style="text-align:right">R$ 280,00</td>
+                  <td style="text-align:right"><span class="tag yellow">27,9%</span></td>
+                </tr>
+                <tr>
+                  <td>🎮 Lazer</td>
+                  <td class="mono" style="text-align:right">R$ 190,00</td>
+                  <td style="text-align:right"><span class="tag purple">18,9%</span></td>
+                </tr>
+                <tr>
+                  <td>📚 Educação</td>
+                  <td class="mono" style="text-align:right">R$ 89,00</td>
+                  <td style="text-align:right"><span class="tag blue">8,9%</span></td>
+                </tr>
+                <tr>
+                  <td>🚌 Transporte</td>
+                  <td class="mono" style="text-align:right">R$ 75,00</td>
+                  <td style="text-align:right"><span class="tag green">7,5%</span></td>
+                </tr>
+                <tr>
+                  <td>🔧 Outros</td>
+                  <td class="mono" style="text-align:right">R$ 68,70</td>
+                  <td style="text-align:right"><span class="tag red">6,9%</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Resumo semestral -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="widget-title">Resumo Semestral</span>
+          </div>
+          <div class="widget-body" style="padding:0">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Mês</th>
+                  <th style="text-align:right">Receita</th>
+                  <th style="text-align:right">Despesa</th>
+                  <th style="text-align:right">Saldo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono" style="font-size:12px">Mar/25</td>
+                  <td class="mono" style="text-align:right;color:var(--green);font-size:12px">1.850</td>
+                  <td class="mono" style="text-align:right;color:var(--red);font-size:12px">1.003</td>
+                  <td class="mono" style="text-align:right;font-weight:700;font-size:12px">847</td>
+                </tr>
+                <tr>
+                  <td class="mono" style="font-size:12px">Fev/25</td>
+                  <td class="mono" style="text-align:right;color:var(--green);font-size:12px">1.850</td>
+                  <td class="mono" style="text-align:right;color:var(--red);font-size:12px">1.046</td>
+                  <td class="mono" style="text-align:right;font-weight:700;font-size:12px">804</td>
+                </tr>
+                <tr>
+                  <td class="mono" style="font-size:12px">Jan/25</td>
+                  <td class="mono" style="text-align:right;color:var(--green);font-size:12px">1.450</td>
+                  <td class="mono" style="text-align:right;color:var(--red);font-size:12px">1.230</td>
+                  <td class="mono" style="text-align:right;font-weight:700;font-size:12px">220</td>
+                </tr>
+                <tr>
+                  <td class="mono" style="font-size:12px">Dez/24</td>
+                  <td class="mono" style="text-align:right;color:var(--green);font-size:12px">2.100</td>
+                  <td class="mono" style="text-align:right;color:var(--red);font-size:12px">1.890</td>
+                  <td class="mono" style="text-align:right;font-weight:700;font-size:12px">210</td>
+                </tr>
+                <tr>
+                  <td class="mono" style="font-size:12px">Nov/24</td>
+                  <td class="mono" style="text-align:right;color:var(--green);font-size:12px">1.650</td>
+                  <td class="mono" style="text-align:right;color:var(--red);font-size:12px">1.400</td>
+                  <td class="mono" style="text-align:right;font-weight:700;font-size:12px">250</td>
+                </tr>
+                <tr>
+                  <td class="mono" style="font-size:12px">Out/24</td>
+                  <td class="mono" style="text-align:right;color:var(--green);font-size:12px">1.450</td>
+                  <td class="mono" style="text-align:right;color:var(--red);font-size:12px">1.520</td>
+                  <td class="mono" style="text-align:right;font-weight:700;font-size:12px;color:var(--red)">–70</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div><!-- /pg-relatorios -->
+
+{% endblock %}
